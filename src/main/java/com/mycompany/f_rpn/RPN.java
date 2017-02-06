@@ -8,7 +8,6 @@ package com.mycompany.f_rpn;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
 
 /**
  *
@@ -58,5 +57,4 @@ public class RPN
             System.out.println(stack.toString() + " ");
         }
     }
-
 }

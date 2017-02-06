@@ -66,36 +66,40 @@ public class Stack<T>
         {
             if (isMathematicalOperator(data[top - 1].toString()))
             {
-                if (data[top - 1].equals("+"))
+                if (isNumeric(data[top - 3].toString()) && isNumeric(data[top - 2].toString()))
                 {
-                    Integer res = Integer.parseInt(data[top - 3].toString()) + Integer.parseInt(data[top - 2].toString());
 
-                    top = top - 3;
-                    push((T) res);
-                }
-                
-                if (data[top - 1].equals("-"))
-                {
-                    Integer res = Integer.parseInt(data[top - 3].toString()) - Integer.parseInt(data[top - 2].toString());
+                    if (data[top - 1].equals("+"))
+                    {
+                        Integer res = Integer.parseInt(data[top - 3].toString()) + Integer.parseInt(data[top - 2].toString());
 
-                    top = top - 3;
-                    push((T) res);
-                }
-                
-                if (data[top - 1].equals("*"))
-                {
-                    Integer res = Integer.parseInt(data[top - 3].toString()) * Integer.parseInt(data[top - 2].toString());
+                        top = top - 3;
+                        push((T) res);
+                    }
 
-                    top = top - 3;
-                    push((T) res);
-                }
-                
-                if (data[top - 1].equals("/"))
-                {
-                    Integer res = Integer.parseInt(data[top - 3].toString()) / Integer.parseInt(data[top - 2].toString());
+                    if (data[top - 1].equals("-"))
+                    {
+                        Integer res = Integer.parseInt(data[top - 3].toString()) - Integer.parseInt(data[top - 2].toString());
 
-                    top = top - 3;
-                    push((T) res);
+                        top = top - 3;
+                        push((T) res);
+                    }
+
+                    if (data[top - 1].equals("*"))
+                    {
+                        Integer res = Integer.parseInt(data[top - 3].toString()) * Integer.parseInt(data[top - 2].toString());
+
+                        top = top - 3;
+                        push((T) res);
+                    }
+
+                    if (data[top - 1].equals("/"))
+                    {
+                        Integer res = Integer.parseInt(data[top - 3].toString()) / Integer.parseInt(data[top - 2].toString());
+
+                        top = top - 3;
+                        push((T) res);
+                    }
                 }
             }
         }
@@ -103,7 +107,7 @@ public class Stack<T>
 
     public boolean isMathematicalOperator(String str)
     {
-        return(str.equals("+") || str.equals("-") || str.equals("*") || str.equals("/"));
+        return (str.equals("+") || str.equals("-") || str.equals("*") || str.equals("/"));
     }
 
     public boolean isNumeric(String str)
